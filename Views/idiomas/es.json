@@ -1,0 +1,56 @@
+{
+    "validaciones_registro":{
+        "username":{
+            "required": "Este campo es obligatorio",
+            "minlength": "Nombre de usuario mínimo tiene que tener 6 caracteres",
+            "maxlength": "Nombre de usuario máximo tiene que tener 20 caracteres",
+            "usuario_existente": "Usuario ya existe, por favor ingrese uno diferente"
+        },
+        "pass":{
+            "required": "Este campo es obligatorio",
+            "minlength": "Nombre de usuario mínimo tiene que tener 8 caracteres",
+            "maxlength": "Nombre de usuario máximo tiene que tener 20 caracteres"
+        },
+        "pass_repeat":{
+            "required": "Este campo es obligatorio",
+            "equalTo": "Tiene que ser igual"        },
+        "nombres":{
+            "required": "Este campo es obligatorio",
+            "minlength": "Mínimo tiene que tener 2 caracteres",
+            "letras": "Este campo solo permite letras"
+        },
+        "dni":{
+            "required": "Introduzca su DNI",
+            "digits": "Solo números",
+            "no_valido":"Cédula incorrecta"
+        },
+        "email":{
+            "required": "Digite su email",
+            "email":"No es formato email"
+        },
+        "telefono":{
+            "min":"Mínimo 7 dígitos"
+        },
+        "terms":"Acepta los términos, por favor",
+        "mensaje_registro":{
+            "exito":"Se ha registrado correctamente",
+            "falla":"Hubo un conflicto en el registro"
+        }
+    },
+    "mi_perfil":{
+        "departamento_p":"Seleccione una región",
+        "provincia":"Seleccione una provincia",
+        "ciudad":"Seleccione una ciudad",
+        "noResults":"No hay resultado",
+        "searching":"Buscando..."
+    },
+    "borrar_direccion":{
+        "title":"¿Estás seguro?",
+        "text":"Se eliminará esta dirección, no hay reversa",
+        "confirmButtonText":"Ok",
+        "cancelButtonText":"Cancelar",
+        "deleted":"Se ha borrado la dirección",
+        "no":"Se ha cancelado la acción",
+        "error":"Error no se ha borrado"
+    }
+}

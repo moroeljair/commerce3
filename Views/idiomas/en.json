@@ -1,0 +1,56 @@
+{
+    "validaciones_registro":{
+        "username":{
+            "required": "This field is required",
+            "minlength": "User name must be at least 6 characters",
+            "maxlength": "Username must have a maximum of 20 characters",
+            "usuario_existente": "User already exists, please enter a new one"
+        },
+        "pass":{
+            "required": "This field is required",
+            "minlength": "Minimum username must be 8 characters long",
+            "maxlength": "Username must have a maximum of 20 characters"
+        },
+        "pass_repeat":{
+            "required": "This field is required",
+            "equalTo": "It must be the same"        },
+        "nombres":{
+            "required": "This field is required",
+            "minlength": "Minimum must be 2 characters",
+            "letras": "This field only allows letters"
+        },
+        "dni":{
+            "required": "Enter your ID",
+            "digits": "Only numbers",
+            "no_valido":"Incorrect ID"
+        },
+        "email":{
+            "required": "Enter your email",
+            "email":"No email format"
+        },
+        "telefono":{
+            "min":"Minimum 7 digits"
+        },
+        "terms":"Accept the terms, please",
+        "mensaje_registro":{
+            "exito":"Successfully registered",
+            "falla":"There was a conflict in the registry"
+        }
+    },
+    "mi_perfil":{
+        "departamento_p":"Choose a region",
+        "provincia":"Choose a province or state",
+        "ciudad":"Choose a city",
+        "noResults":"No results",
+        "searching":"Searching..."
+    },
+    "borrar_direccion":{
+        "title":"¿Are you sure?",
+        "text":"This address will be deleted, there is no reversal.",
+        "confirmButtonText":"Ok",
+        "cancelButtonText":"Cancel",
+        "deleted":"The address has been deleted",
+        "no":"The action has been cancelled",
+        "error":"Error has not been deleted"
+    }
+}
