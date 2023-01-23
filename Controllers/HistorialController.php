@@ -43,7 +43,18 @@
 
     }
 
-
+    if($_POST['funcion']=='crear_error_tabla'){
+        try{
+            $campo = $_POST['campo'];
+            $error = $_POST['error'];
+            $tabla=$_POST['tabla'];
+    
+            $historial->crear_error_tabla($campo,$error,$tabla);
+            echo 'success';    
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+     }
 
 
 

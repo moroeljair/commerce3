@@ -60,10 +60,22 @@
             }
         }
 
+
+        function crear_error_tabla($campo,$error,$tabla){
+            try{
+                $sql="INSERT INTO ".$tabla."(campo,error) VALUES(:campo,:error)";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':campo'=>$campo,
+                    ':error'=>$error
+                );
+                $query->execute($variables);
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+        }
  
-
-
-
 
 
 }

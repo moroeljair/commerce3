@@ -94,7 +94,7 @@
     
                 <!-- /.card-body -->
                 <div class="card-footer text-center">
-                  <button type="submit" class="btn btn-lg bg-gradient-primary"><?php echo $palabras['registro']['registrarme'];?></button>
+                  <button id="boton_registro" type="submit" class="btn btn-lg bg-gradient-primary"><?php echo $palabras['registro']['registrarme'];?></button>
                 </div>
               </form>
 
