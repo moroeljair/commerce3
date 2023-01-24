@@ -52,5 +52,6 @@
         "deleted":"Se ha borrado la dirección",
         "no":"Se ha cancelado la acción",
         "error":"Error no se ha borrado"
-    }
+    },
+    "telefono_max":"Excede el límite"
 }

@@ -23,6 +23,9 @@ $(document).ready(function ()
       verificar_letras('apellidos',$('#apellidos').val());
       verificar_numeros('telefono',$('#telefono').val());
       verificar_numeros('dni',$('#dni').val());
+      verificar_telefono($('#telefono').val());
+      verificar_email($('#email').val());
+      verificar_passwords($('#pass').val(),$('#pass_repeat').val());
 
       //verificar campos vacios
       verificar_campo_vacio('nombres',$('#nombres').val());
@@ -207,7 +210,8 @@ $(document).ready(function ()
                     telefono:{
                       required:true,
                       digits:true,
-                      minlength:7
+                      minlength:7,
+                      maxlength:14
                     },
                     password: {
                       required: true,
@@ -251,7 +255,8 @@ $(document).ready(function ()
                     telefono:{
                       required: palabras.validaciones_registro.nombres.required,
                       digits: palabras.validaciones_registro.dni.digits,
-                      minlength: palabras.validaciones_registro.telefono.min
+                      minlength: palabras.validaciones_registro.telefono.min,
+                      maxlength: palabras.telefono_max   
                     },
                     email: {
                       required: palabras.validaciones_registro.email.required,

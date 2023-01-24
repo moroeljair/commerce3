@@ -68,3 +68,65 @@ function verificar_cedula(cedula){
         registrar_error(url_controller,funcion,campo,error,tabla);
     }
 }
+
+function verificar_telefono(valor){
+    let error="sobre pasa numero de caracteres 14";
+    valor=valor.trim();
+    let variable = valor.replace(/ /g, "");
+    if(/^[A-Za-z]+$/.test(variable) == false & variable.trim()!=''){
+        if(variable.length>14){
+            //console.log(variable);
+            registrar_error(url_controller,funcion,"telefono",error,tabla);
+        }
+    }
+}
+
+function verificar_email(valor){
+    let error="no contiene el formato";
+    valor=valor.trim();
+    let variable = valor.replace(/ /g, "");
+    if(validarEmail(variable)==false & variable.trim()!=''){
+        registrar_error(url_controller,funcion,"email",error,tabla);
+    }
+}
+
+/*
+function validarEmail(valor) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
+     return true;
+    } else {
+        return false;
+    }
+}*/
+
+function validarEmail(emailField){
+                
+	// Define our regular expression.
+	var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+	// Using test we can check if the text match the pattern
+	if( validEmail.test(emailField.value) ){
+		//alert('Email is valid, continue with form submission');
+		return true;
+	}else{
+		//alert('Email is invalid, skip form submission');
+		return false;
+	}
+} 
+
+function verificar_passwords(ps1,ps2){
+    let error="no coinciden";
+    if(ps1.trim()!='' & ps2.trim()!=''){
+        if(ps1 != ps2){
+            registrar_error(url_controller,funcion,"passwords",error,tabla);
+        }    
+    }
+    if(ps1.trim()>=1 & ps1.trim()<8){
+        error="menor a 8 caracteres";
+        registrar_error(url_controller,funcion,"pass",error,tabla);
+    }
+    if(ps2.trim()>=1 & ps2.trim()<8){
+        error="menor a 8 caracteres";
+        registrar_error(url_controller,funcion,"pass_repeat",error,tabla);
+    }
+}
