@@ -40,13 +40,16 @@
       </form>
 
      
-      <!-- /.social-auth-links -->
+      <!-- /.social-auth-links 
 
       <p class="mb-1">
         <a href="">
           <?php echo $palabras['login']['olvido_c']; ?>
         </a>
       </p>
+
+      -->
+      
       <p class="mb-0">
         <a href="./register.php" class="text-center">
           <?php echo $palabras['login']['registrarse']; ?>

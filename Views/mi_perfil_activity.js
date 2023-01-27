@@ -10,7 +10,7 @@ $(document).ready(function(){
             let template="";
             //console.log(historiales);
             historiales.forEach(historial => {
-                console.log(historial);
+                //console.log(historial);
                 template+=`
                       <div class="time-label">
                         <span class="bg-danger">
@@ -19,7 +19,7 @@ $(document).ready(function(){
                       </div>
                       `;
                 historial.forEach(cambio =>{
-                    console.log('cambio '+cambio.descripcion);
+                    //console.log('cambio '+cambio.descripcion);
                     template+=`
                     <div>
                         ${cambio.m_icono}
