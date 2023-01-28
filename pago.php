@@ -35,6 +35,7 @@ $palabras = parse_ini_file( $archivo, true );
 
 include './Views/Layouts/header.php';
 
+
 ?>
 
 
@@ -95,7 +96,7 @@ include './Views/Layouts/header.php';
                                     <input type="number" class="form-control" id="postal" name="postal" placeholder="<?php echo $palabras['carrito']['cod_pos'];?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="celular" name="cedula" placeholder="<?php echo $palabras['carrito']['cedula'];?>">
+                                    <input type="number" class="form-control" id="cedula" name="cedula" placeholder="<?php echo $palabras['carrito']['cedula'];?>">
                                 </div>
                             </div>
                         </div>
@@ -159,22 +160,31 @@ include './Views/Layouts/header.php';
                 </table>
             </div>            
         </div>
-        </div>
-        </div>
-                            </section>
+
+    </section>
     </main>
 
     
 
     <script src="./Views/idiomas/idiomas.js"></script>
     <!-- jQuery -->
-    <script src="Util/Js/jquery.min.js"></script>
+    <script src="./Util/Js/jquery.min.js"></script>
     <script src="./Util/Js/registrar_paginas.js"></script>
-    <script src="pago.js"></script>
+    <script src="./pago.js"></script>
 
     <?php
 include_once './Views/Layouts/footer.php';
 ?>
+
+<script src="./Util/Js/toastr.min.js"></script>
+
+<!-- jquery-validation -->
+<script src="./Util/Js/jquery.validate.min.js"></script>
+<script src="./Util/Js/jquery-validation/additional-methods.min.js"></script>
+
+<script src="./Util/Js/sweetalert2.min.js"></script>
+<script src="./Util/Js/validador_pago.js"></script>
+
 
 <!--
     <script src="https://www.paypal.com/sdk/js?client-id=AbQh_HMf6yH_qMW9Roprb_rj8DRYeMZgP-dZy3THNmXdHJjPu4vmJ7f_8TqcI8Ysj0L0dx5wc2aeJtjq&currency=USD"></script>

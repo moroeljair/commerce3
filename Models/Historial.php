@@ -64,7 +64,8 @@
                 $query = $this->acceso->prepare($sql);
                 $query->execute(array(':id_user'=>$id_user));
                 $this->objetos = $query->fetchAll();
-                $_SESSION['id_login'] = $this->objetos[0]->id_login;                
+                $_SESSION['id_login'] = $this->objetos[0]->id_login;    
+                $_SESSION['numero_transacciones']=0;            
             }
             catch(Exception $e){
                 return $e->getMessage();
@@ -114,8 +115,10 @@
                     ':id_login'=>$id_login
                 );
                 $query->execute($variables);
+                $_SESSION['id_transaccion'] = $this->acceso->lastInsertId();
 
                 //guardar en SESION el id_login
+                /*
                 $id_user = $_SESSION['id'];
                 $sql="SELECT * FROM registro_transaccion
                         WHERE id_login=:id_login
@@ -123,7 +126,42 @@
                         LIMIT 1;";
                 $query = $this->acceso->prepare($sql);
                 $query->execute(array(':id_login'=>$id_login));
-                $_SESSION['id_transaccion'] = $query->fetchAll()[0]->id;                
+                $_SESSION['id_transaccion'] = $query->fetchAll()[0]->id;
+                */                
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+        }
+
+        function registrar_fin_transaccion(){
+            try{
+                $id_login = $_SESSION['id_login'];
+                
+                //actualizar la id transaccion
+                $sql="UPDATE registro_transaccion
+                      SET fecha_fin=current_timestamp(), transaccion=1
+                      WHERE id=:id_transaccion;";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':id_transaccion'=>$_SESSION['id_transaccion']
+                );
+                $query->execute($variables);
+
+                //actualizar el registro login
+                $sql="UPDATE registro_login
+                      SET numero_transacciones=:num
+                      WHERE id_login=:id_login;";
+                $query = $this->acceso->prepare($sql);
+                $_SESSION['numero_transacciones']=$_SESSION['numero_transacciones']+1;
+                $variables = array(
+                    'id_login'=>$id_login,
+                    ':num'=>$_SESSION['numero_transacciones']
+                );
+                $query->execute($variables);
+
+                
+              
             }
             catch(Exception $e){
                 return $e->getMessage();

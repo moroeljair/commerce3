@@ -5,7 +5,7 @@ $(document).ready(function(){
     function verificar_sesion(){
         funcion = 'verificar_sesion';
         $.post('./Controllers/UsuarioController.php', {funcion}, (response)=>{
-            console.log(response);
+            //console.log(response);
             if(response != ''){
                 let sesion=JSON.parse(response);
                 $('#nav_login').hide();

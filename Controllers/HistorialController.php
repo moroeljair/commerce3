@@ -75,6 +75,15 @@
         }
      }
 
+     if($_POST['funcion']=='registrar_fin_transaccion'){
+        try{
+            $historial->registrar_fin_transaccion();
+            echo 'success';    
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+     }
+
 
 
 
