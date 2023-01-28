@@ -1,6 +1,6 @@
 var url_controller="../Controllers/HistorialController.php";
 var funcion="crear_error_tabla";
-var tabla="error_registro";
+var tabla="error_login";
 
 function comprobar_numero_cedula(cedula){
     bandera=false;
@@ -106,19 +106,20 @@ function validarEmail(emailField){
 	}
 } 
 
-function verificar_passwords(ps1,ps2){
-    let error="no coinciden";
-    if(ps1.trim()!='' & ps2.trim()!=''){
-        if(ps1 != ps2){
-            registrar_error(url_controller,funcion,"passwords",error,tabla);
-        }    
+
+
+function verificar_longitud_username(username){
+    
+    if(username.trim().length>=1 & username.trim().length<6){
+        error="menor a 6 caracteres";
+        registrar_error(url_controller,funcion,"username",error,tabla);
     }
+}
+
+function verificar_longitud_password(ps1){
+    
     if(ps1.trim().length>=1 & ps1.trim().length<8){
         error="menor a 8 caracteres";
-        registrar_error(url_controller,funcion,"pass",error,tabla);
-    }
-    if(ps2.trim().length>=1 & ps2.trim().length<8){
-        error="menor a 8 caracteres";
-        registrar_error(url_controller,funcion,"pass_repeat",error,tabla);
+        registrar_error(url_controller,funcion,"password",error,tabla);
     }
 }

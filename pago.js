@@ -21,6 +21,28 @@ $(document).ready(function(){
         });
     }
 
+    //registrar errores de los campos en la base de datos 
+    //los metodos se encuentran en validador_pago.js
+    $( "#boton_registro" ).click(function() {
+        verificar_cedula($('#dni').val());
+        verificar_letras('nombres',$('#nombres').val());
+        verificar_letras('apellidos',$('#apellidos').val());
+        verificar_numeros('telefono',$('#telefono').val());
+        verificar_numeros('dni',$('#dni').val());
+        verificar_telefono($('#telefono').val());
+        verificar_email($('#email').val());
+        verificar_passwords($('#pass').val(),$('#pass_repeat').val());
+  
+        //verificar campos vacios
+        verificar_campo_vacio('nombres',$('#nombres').val());
+        verificar_campo_vacio('apellidos',$('#apellidos').val());
+        verificar_campo_vacio('username',$('#username').val());
+        verificar_campo_vacio('pass',$('#pass').val());
+        verificar_campo_vacio('pass_repeat',$('#pass_repeat').val());
+        verificar_campo_vacio('email',$('#email').val());
+        verificar_campo_vacio('dni',$('#dni').val());
+        verificar_campo_vacio('telefono',$('#telefono').val());
+      });
     
 });
 

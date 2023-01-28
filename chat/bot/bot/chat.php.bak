@@ -1,0 +1,92 @@
+<?php
+include "Bot.php";
+$bot = new Bot;
+$questions = [
+    //que es tecnología
+    "que es tecnología?" => "La tecnología es el conjunto de nociones y conocimientos científicos que el ser humano utiliza para lograr un objetivo preciso, que puede ser la solución de un problema especifico del individuo o la satisfacción de alguna de sus necesidades.",
+    "tecnología?" => "Es un concepto amplio que abarca una gran variedad de aspectos y disciplinas dentro de la electrónica, el arte o la medicina.",
+    "tecnología actual?" => "Conjunto de los conocimientos propios de una técnica.",
+    //que vendes
+    "que articulos vendes?" =>"Tenemos articulos de computación como: Periféricos(teclados,mouse,audífonos,microfonos y parlantes), Monitores, Sillas",
+    "solo vendes articulos de tecnología?" =>"Si, revisa el catalogo de compra." ,
+    "tienes articulos de computación?" =>"Si, tenemos Periféricos, Hardware(Mainboards,Memoria Ram, Almacenamiento, Tarjeta de Video, Tarjetas de expensión, Enfriamiento, Fuentes de Poder), Monitores, Accesorios",
+    
+    //Recomendar Procesadores
+      "que procesador me recomiendas?" => "En nuestro catálogo, tenemos procesadores Intel y AMD, te recomendamos escoger la intel i7-10100F unlocked. El costo es de $799.99",
+      "cual es el procesador mas barato?" => "Si requieres una AMD, te recomiendo AMD Athlon 3020GE que está a $72. En el caso que requieras Intel, te recomeindo Intel Pentium Gold G6400 que está a $109.99",
+      "cual es el procesador mas optimo?" => "El procesador Intel Core i7-11700F sin Graficos. El costo es de $699.99",
+
+
+    //Recomendar Monitor
+
+    "que monitor me recomiendas?" => "Te recomiendo el Monitor Benq Bl2420Pt 24″ (23.8″) QHD 2K 2560X1440 Ips D-Su/Dvi, ideal para teletrabajo. El costo es de $244.99",
+    "cual es el monitor mas optimo?" => "El Monitor Curvo Asus TUF Gaming Vg24Vq 24″ 23.6″ 144Hz 1Ms, ideal para juegos que requieran mayor detalle y texturación de los escenarios. El costo es de $434.99",
+    "cual es el monitor mas barato?" => "Monitor Dell E2016H 19.5″ Led Vga-Display Port – Hd 1600X900P a un costo de $134.99.",
+
+    //Recomendat sillas
+
+    "que silla me recomiendas" => "Silla Gaming Marvo Ch-106 Negro/Negra. El costo es de $179.99.",
+    "cual es la silla mas barata " => "Silla Oficina Zack-Cr 801T-Cr Blanco/Negro. El costo es de $99.99s",
+    "cual es la silla mas optima" => "Silla Meetion Mt-Chr15 Negro/Negro Ergonomic/ Ajustable. El costo es de $209.99.",
+
+    //Recomendar Periféricos
+	
+    "que perifericos tienes" => "Tenemos teclados, mouse, audifonos, microfonos, parlantes",
+    "que teclado me recomiendas" => "Combo Logitech Mk235 Teclado Y Mouse Inalambricos (920-007901). El costo es de $29.99",
+    "cual es el teclado mas barato" => "Teclado Gamer Xfire Xtratech Membrana Retroiluminado/Usb/Gris Xtr-Gk907-Gr. El costo es de $19.99",
+    "cual es el teclado mas optimo" => "Teclado Mecánico XPG Summoner RGB – Cherry Mx Blue – Es (Summoner5B-Bkces). El costo es de #69.99",
+    "cual es el mouse mas barato" => "Mouse Pad Meetion Mt-Pd015 Black 25X19mm. El costo es de $1.99",
+    "cual es el mouse mas optimo" => "Mouse Logitech G502 Hero Edition Kda League Of Legends Blanco (910-006096). El costo es de $57.99",
+    "que mouse me recomiendas" => "Mouse XPG Gaming Primer RGB 12000Dpi 7 Botones – Black (Primer-BkcWW). El costo es $53.99",
+    "que audifonos me recomiendas" => "Audífonos Inalambricos Anker Soundbuds Sport Wireless Bluetooth – Sin Garantía. El costo es de $33.99",
+    "cual es el audifono mas barato" => "Audifono C-Microfono Genius HS-M270 Orange. El costo es de $27.99",
+    "cual es el audifono mas optimo" => "Headset Redragon H220 Themis – 3.5mm – Black. El costo es de $35.99",
+    "que micrófono me recomiendas" => "Microfono Trust Exxo Gxt 256 Con Base – RGB – Usb (23510). El costo es de $101.99",
+    "cual es el microfono mas barato" => "Microfono Trust Gxt 215 Zabi Led-Illuminated Usb (23800). El costo es de $17.99",
+    "cual es el microfono mas optimo" => "Microfono Marvo Mic-03 Con Tripode Y Filtro. El costo es de $41.99",      
+    "que parlante me recomiendas" => "Parlante Multimedia RGB Havit Hv-Sk708-Bk. El costo es de $29.99",
+    "cual es el parlante mas barato" => "Parlante Trust Ziva RGB – Usb – 22W Black (23644). El costo es de $9.99",
+    "cual es el parlante mas optimo" => "Parlantes Logitech Z213 2.1 – 14 Watts (980-000941). El costo es de $35.99",    
+	
+    //name
+    "como te llamas?" =>"Soy VShopBot y estoy para servirte",
+    "cual es tu nombre?" =>"Soy VShopBot y estoy para servirte",
+    "tienes nombre?" =>"Soy VShopBot y estoy para servirte",
+
+
+    //saludo
+    "hola" =>"Hola que tal!",
+    "un saludo" =>"como te va",
+    "hello" =>"un gusto de verte",
+ 
+    //despedida
+    "adios" =>"cuidate",
+    "hasta la proxima" =>"nos vemos pronto",
+    "nos vemos" =>"te estare esperando",
+    "bye" =>"Good bye ♥",
+    "see you" =>"see you lader ♥",
+    //
+    "what is your name?" =>" my name is VShopBot",
+   
+
+
+    "tu nombre es?" => "Mi nombre es " . $bot->getName(),
+    "tu eres?" => "Yo soy una " . $bot->getGender()
+    
+];
+
+if (isset($_GET['msg'])) {
+   
+    $msg = strtolower($_GET['msg']);
+    $bot->hears($msg, function (Bot $botty) {
+        global $msg;
+        global $questions;
+        if ($msg == 'hi' || $msg == "hello") {
+            $botty->reply('Hola');
+        } elseif ($botty->ask($msg, $questions) == "") {
+            $botty->reply("Lo siento, Las preguntas deben estar relacionadas a nuestra tienda virtual.");
+        } else {
+            $botty->reply($botty->ask($msg,$questions));
+        }
+    });
+}

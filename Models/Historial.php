@@ -54,6 +54,17 @@
                     ':id_usuario'=>$id_usuario
                 );
                 $query->execute($variables);
+
+                //guardar en SESION el id_login
+                $id_user = $_SESSION['id'];
+                $sql="SELECT * FROM registro_login
+                        WHERE id_usuario=:id_user
+                        ORDER BY fecha DESC
+                        LIMIT 1;";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':id_user'=>$id_user));
+                $this->objetos = $query->fetchAll();
+                $_SESSION['id_login'] = $this->objetos[0]->id_login;                
             }
             catch(Exception $e){
                 return $e->getMessage();
@@ -75,7 +86,49 @@
                 return $e->getMessage();
             }
         }
+
+        function registrar_pagina($pagina){
+            try{
+                $sql="INSERT INTO registro_paginas(id_login,fecha,pagina) 
+                    VALUES(:id_login,current_timestamp(),:pagina);";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':pagina'=>$pagina,
+                    ':id_login'=>$_SESSION['id_login']
+                );
+                $query->execute($variables);
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+        }
  
+
+        function registrar_inicio_transaccion(){
+            try{
+                $id_login = $_SESSION['id_login'];
+                $sql="INSERT INTO registro_transaccion(id_login) 
+                    VALUES(:id_login)";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':id_login'=>$id_login
+                );
+                $query->execute($variables);
+
+                //guardar en SESION el id_login
+                $id_user = $_SESSION['id'];
+                $sql="SELECT * FROM registro_transaccion
+                        WHERE id_login=:id_login
+                        ORDER BY fecha_inicio DESC
+                        LIMIT 1;";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':id_login'=>$id_login));
+                $_SESSION['id_transaccion'] = $query->fetchAll()[0]->id;                
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+        }
 
 
 }

@@ -56,7 +56,7 @@ include './Views/Layouts/header.php';
                             <p class="card-text">$ <?php echo number_format($row['precio'], 2, '.', ','); ?></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="detalles.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>" class="btn btn-primary"><?php echo $palabras['carrito']['detalles']; ?></a>
+                                    <a onclick="regitrar_click_enlace('detalles.php')" href="detalles.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>" class="btn btn-primary"><?php echo $palabras['carrito']['detalles']; ?></a>
                                 </div>
                                 <button class="btn btn-outline-success" type="button"
                             onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>')"><?php echo $palabras['carrito']['agregar']; ?></button>
@@ -101,6 +101,7 @@ include_once './Views/Layouts/footer.php';
         })
     }
 </script>
+
 
 
 

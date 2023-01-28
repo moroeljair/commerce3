@@ -101,7 +101,7 @@ include './Views/Layouts/header.php';
             <?php if($lista_carrito != null){ ?>
             <div class="row">
                 <div class="col-md-5 offset-md-7 d-grid gap2">
-                    <a href="pago.php" class="btn btn-primary btn-lg"><?php echo $palabras['carrito']['realizarpago']; ?></a>
+                    <a href="pago.php" onclick="regitrar_click_enlace('pago.php'); registrar_inicio_transaccion()" class="btn btn-primary btn-lg"><?php echo $palabras['carrito']['realizarpago']; ?></a>
                 </div>
             </div>
             <?php } ?>

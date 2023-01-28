@@ -43,12 +43,72 @@ include './Views/Layouts/header.php';
 
     
     <main>
-        <div class="container">
-
-            <div class="row">
-                <div class="col-6">
-                    <h4><?php echo $palabras['carrito']['formapago']; ?></h4>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">                    <h4><?php echo $palabras['carrito']['formapago']; ?></h4>
+                    <!--
                     <div id="paypal-button-container"></div>
+                    -->
+
+
+                    <form id="form-pago">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="<?php echo $palabras['carrito']['n_tarjeta'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="<?php echo $palabras['carrito']['f_caducida'];?>">    
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="csc" name="csc" placeholder="<?php echo $palabras['carrito']['cvv'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                <label class="form-label"><?php echo $palabras['carrito']['dir'];?></label>   
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="<?php echo $palabras['carrito']['nombre'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="<?php echo $palabras['carrito']['apellido'];?>">    
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="calle" name="calle" placeholder="<?php echo $palabras['carrito']['calle'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="<?php echo $palabras['carrito']['direccion'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="postal" name="postal" placeholder="<?php echo $palabras['carrito']['cod_pos'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="celular" name="cedula" placeholder="<?php echo $palabras['carrito']['cedula'];?>">
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- /.card-body -->
+                        <div class="card-footer text-center">
+                        <button id="boton_registro" type="submit" class="btn btn-lg bg-gradient-primary"><?php echo $palabras['carrito']['pagar_ahora'];?></button>
+                        </div>
+              </form>
+
+
+
+
 
                 </div>
             <div class="col-6">
@@ -99,8 +159,9 @@ include './Views/Layouts/header.php';
                 </table>
             </div>            
         </div>
-            </div>
         </div>
+        </div>
+                            </section>
     </main>
 
     
@@ -108,12 +169,14 @@ include './Views/Layouts/header.php';
     <script src="./Views/idiomas/idiomas.js"></script>
     <!-- jQuery -->
     <script src="Util/Js/jquery.min.js"></script>
+    <script src="./Util/Js/registrar_paginas.js"></script>
     <script src="pago.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <?php
+include_once './Views/Layouts/footer.php';
+?>
 
+<!--
     <script src="https://www.paypal.com/sdk/js?client-id=AbQh_HMf6yH_qMW9Roprb_rj8DRYeMZgP-dZy3THNmXdHJjPu4vmJ7f_8TqcI8Ysj0L0dx5wc2aeJtjq&currency=USD"></script>
 
     
@@ -158,6 +221,7 @@ include './Views/Layouts/header.php';
         }).render('#paypal-button-container');
     </script>
 
+-->
 
  
 

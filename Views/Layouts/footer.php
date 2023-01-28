@@ -24,5 +24,7 @@
 <script src="Util/Js/adminlte.min.js"></script>
 <script src="index.js"></script>
 
+<script src="./Util/Js/registrar_paginas.js"></script>
+
 </body>
 </html>

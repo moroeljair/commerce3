@@ -56,6 +56,25 @@
         }
      }
 
+     if($_POST['funcion']=='registrar_pagina'){
+        try{
+            $pagina = $_POST['pagina'];
+            $historial->registrar_pagina($pagina);
+            echo 'success';    
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+     }
+
+     if($_POST['funcion']=='registrar_inicio_transaccion'){
+        try{
+            $historial->registrar_inicio_transaccion();
+            echo 'success';    
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+     }
+
 
 
 

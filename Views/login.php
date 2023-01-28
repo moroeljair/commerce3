@@ -49,7 +49,7 @@
       </p>
 
       -->
-      
+
       <p class="mb-0">
         <a href="./register.php" class="text-center">
           <?php echo $palabras['login']['registrarse']; ?>
@@ -65,4 +65,5 @@
   include_once './Layouts/footer_views.php';
 ?>
 
+<script src="../Util/Js/error_login.js"></script>
 <script src="login.js"></script>

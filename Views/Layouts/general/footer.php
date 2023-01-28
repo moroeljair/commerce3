@@ -35,6 +35,6 @@
 <script src="../Util/Js/sweetalert2.min.js"></script>
 <script src="../Util/Js/bs-custom-file-input.min.js"></script>
 
-
+<script src="../Util/Js/registrar_paginas.js"></script>
 </body>
 </html>

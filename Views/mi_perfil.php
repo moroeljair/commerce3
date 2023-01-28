@@ -238,8 +238,10 @@
                     <div class="col-8">
                       <h2 id="nombres" class="lead"><b></b></h2>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-address-card"></i></span>DNI: <span id="dni"></span></li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-at"></i></span>EMAIL: <span id="email"></span></li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-address-card"></i></span>
+                        <?php echo $palabras['mis_datos']['dni'];?>: <span id="dni"></span></li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-at"></i></span>
+                        <?php echo $palabras['mis_datos']['email'];?>: <span id="email"></span></li>
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <span id="telefono"></span></li>
                       </ul>
                     </div>

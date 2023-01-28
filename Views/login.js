@@ -16,6 +16,11 @@ $(document).ready(function(){
         funcion='login';
         let user = $('#user').val();
         let pass = $('#pass').val();
+        verificar_campo_vacio('username',user);
+        verificar_campo_vacio('password',pass);
+        verificar_longitud_username(user);
+        verificar_longitud_password(pass);
+
         $.post('../Controllers/UsuarioController.php', {funcion,user,pass}, (response)=>{
             var respuesta = JSON.parse(response);
             //console.log(respuesta);

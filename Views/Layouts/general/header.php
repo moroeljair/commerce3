@@ -53,7 +53,7 @@ $palabras = parse_ini_file( $archivo, true );
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item dropdown">
-                <a href="../index.php" class="navbar-brand">
+                <a href="../index.php" onclick="regitrar_click_enlace2('index.php')" class="navbar-brand">
                     <span class="brand-text font-weight-light"><?php echo $palabras['header']['titulo']; ?></span>
                 </a>
       </li>
@@ -61,14 +61,14 @@ $palabras = parse_ini_file( $archivo, true );
     
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" href="../checkout.php">
+        <a class="nav-link" onclick="regitrar_click_enlace2('checkout.php')" href="../checkout.php">
           <i class="fas fa-shopping-cart"></i>
           <span id="num_cart" class="badge badge-danger navbar-badge"><?php echo $num_cart; ?></span>
         </a>
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item" id="nav_register">
-        <a class="nav-link" href="./Views/register.php" role="button">
+        <a class="nav-link"  href="./Views/register.php" role="button">
           <i class="fas fa-user-plus"></i> <?php echo $palabras['header']['registrarse']; ?> 
         </a>
       </li>
@@ -83,11 +83,11 @@ $palabras = parse_ini_file( $archivo, true );
           <span id="usuario_nav"><?php echo $palabras['header']['usuario_logueado']; ?> </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="./mi_perfil.php"><i class="fas fa-user-cog"></i> 
+          <a class="dropdown-item" onclick="regitrar_click_enlace2('miperfil.php')" href="./mi_perfil.php"><i class="fas fa-user-cog"></i> 
           <?php echo $palabras['header']['mi_perfil']; ?></a>
-          <a class="dropdown-item" href="#"><i class="fas fa-shopping-basket"></i> 
-          <?php echo $palabras['header']['mis_pedidos']; ?></a>
-          <a class="dropdown-item" href="../Controllers/logout.php"><i class="fas fa-user-times"></i>
+          <a class="dropdown-item" onclick="regitrar_click_enlace2('ayuda.php')" href="<?php echo $palabras['url']['ayuda_url2']; ?>" target="_blank"><i class="fa-solid fa-question"></i> 
+          <?php echo $palabras['adicional']['ayuda']; ?></a>
+          <a class="dropdown-item" onclick="regitrar_click_enlace2('logout.php')" href="../Controllers/logout.php"><i class="fas fa-user-times"></i>
           <?php echo $palabras['header']['cerrar_sesion']; ?></a>
         </div>
       </li>
@@ -98,11 +98,11 @@ $palabras = parse_ini_file( $archivo, true );
           <span><?php echo $palabras['header']['idioma']; ?> </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item"  onclick="cambiarIdioma('es')">
+          <a class="dropdown-item"  onclick="regitrar_click_enlace2('espanol.php'); cambiarIdioma('es')">
           <?php echo $palabras['idiomas']['es']; ?></a>
-          <a class="dropdown-item"  onclick="cambiarIdioma('ar')"> 
+          <a class="dropdown-item"  onclick="regitrar_click_enlace2('arabe.php'); cambiarIdioma('ar')"> 
           <?php echo $palabras['idiomas']['ar']; ?></a>
-          <a class="dropdown-item"  onclick="cambiarIdioma('en')"> 
+          <a class="dropdown-item"  onclick="regitrar_click_enlace2('ingles.php'); cambiarIdioma('en')"> 
           <?php echo $palabras['idiomas']['en']; ?></a>
         </div>
       </li>
