@@ -26,8 +26,9 @@ $(document).ready(function(){
 
     //registrar errores de los campos en la base de datos 
     //los metodos se encuentran en validador_pago.js
-    /*
+    
     $( "#boton_registro" ).click(function() {
+        /*
         verificar_cedula($('#dni').val());
         verificar_letras('nombres',$('#nombres').val());
         verificar_letras('apellidos',$('#apellidos').val());
@@ -36,18 +37,39 @@ $(document).ready(function(){
         verificar_telefono($('#telefono').val());
         verificar_email($('#email').val());
         verificar_passwords($('#pass').val(),$('#pass_repeat').val());
+        */
+
+        verificar_letras('nombre',$('#nombre').val());
+        verificar_letras('apellido',$('#apellido').val());
+        verificar_numeros('cedula',$('#cedula').val());
+        verificar_numeros('postal',$('#postal').val());
+        verificar_numeros('tarjeta',$('#tarjeta').val());
+        verificar_numeros('csc',$('#csc').val());
+        verificar_cedula($('#cedula').val());
+
+        registrar_error_fecha_caducidad('fecha_caducidad',$('#fechaCaducidad').val());
+
+        verificar_minimo_caracteres(2,'nombre',$('#nombre').val());
+        verificar_minimo_caracteres(2,'apellido',$('#apellido').val());
+        verificar_minimo_caracteres(2,'calle',$('#calle').val());
+        verificar_minimo_caracteres(2,'direccion',$('#direccion').val());
+
+        verificar_numero_caracteres(16,'tarjeta',$('#tarjeta').val());
+        verificar_numero_caracteres(3,'csc',$('#csc').val());
+        verificar_numero_caracteres(6,'postal',$('#postal').val());
   
         //verificar campos vacios
-        verificar_campo_vacio('nombres',$('#nombres').val());
-        verificar_campo_vacio('apellidos',$('#apellidos').val());
-        verificar_campo_vacio('username',$('#username').val());
-        verificar_campo_vacio('pass',$('#pass').val());
-        verificar_campo_vacio('pass_repeat',$('#pass_repeat').val());
-        verificar_campo_vacio('email',$('#email').val());
-        verificar_campo_vacio('dni',$('#dni').val());
-        verificar_campo_vacio('telefono',$('#telefono').val());
+        verificar_campo_vacio('tarjeta',$('#tarjeta').val());
+        verificar_campo_vacio('fechaCaducidad',$('#fechaCaducidad').val());
+        verificar_campo_vacio('csc',$('#csc').val());
+        verificar_campo_vacio('nombre',$('#nombre').val());
+        verificar_campo_vacio('apellido',$('#apellido').val());
+        verificar_campo_vacio('calle',$('#calle').val());
+        verificar_campo_vacio('direccion',$('#direccion').val());
+        verificar_campo_vacio('postal',$('#postal').val());
+        verificar_campo_vacio('cedula',$('#cedula').val());
       });
-      */
+      
 
     funcion='lenguaje';
     $.post('./Controllers/idiomas.php', {funcion}, (response)=>{
@@ -147,6 +169,18 @@ $(document).ready(function(){
                   }
                   ,"Cédula incorrecta");
 
+                  jQuery.validator.addMethod("fecha_caducidad",
+                  function(value,element){
+                    return comprobar_fecha_caducidad_tarjeta(value);
+                  }
+                  ,"Fecha incorrecta");
+
+                  jQuery.validator.addMethod("formato_fecha_caducidad",
+                  function(value,element){
+                    return comprobar_formato_fecha_caducidad(value);
+                  }
+                  ,"Formato incorrecto, ejemplo 11/24");
+
                 
                 $('#form-pago').validate({
                   rules: {
@@ -159,7 +193,44 @@ $(document).ready(function(){
                       required:true,
                       minlength: 2,
                       letras:true
+                    },
+                    calle:{
+                      required:true,
+                      minlength: 2
+                    },
+                    direccion:{
+                      required:true,
+                      minlength: 2
+                    },
+                    cedula:{
+                      required:true,
+                      digits:true,
+                      cedula: true
+                    },
+                    postal:{
+                      required:true,
+                      digits:true,
+                      minlength:6,
+                      maxlength:6
+                    },
+                    tarjeta:{
+                      required:true,
+                      digits: true,
+                      minlength: 16,
+                      maxlength: 16
+                    },
+                    csc:{
+                      required:true,
+                      digits: true,
+                      minlength: 3,
+                      maxlength: 3
+                    },
+                    fechaCaducidad:{
+                      required: true,
+                      formato_fecha_caducidad:true,
+                      fecha_caducidad:true
                     }
+
                   },
                   messages: {
                     nombre:{
@@ -171,6 +242,42 @@ $(document).ready(function(){
                       required: palabras.validaciones_registro.nombres.required,
                       minlength: palabras.validaciones_registro.nombres.minlength,
                       letras: palabras.validaciones_registro.nombres.letras                            
+                    },
+                    calle:{
+                      required: palabras.validaciones_registro.nombres.required,
+                      minlength: palabras.validaciones_registro.nombres.minlength
+                    },
+                    direccion:{
+                      required: palabras.validaciones_registro.nombres.required,
+                      minlength: palabras.validaciones_registro.nombres.minlength
+                    },
+                    cedula:{
+                      required: palabras.validaciones_registro.dni.required,
+                      digits: palabras.validaciones_registro.dni.digits,
+                      cedula: palabras.validaciones_registro.dni.no_valido
+                    },
+                    postal:{
+                      required: palabras.validaciones_registro.dni.required,
+                      digits: palabras.validaciones_registro.dni.digits,
+                      minlength: palabras.form_pago.postal.min,
+                      maxlength: palabras.form_pago.postal.min
+                    },
+                    tarjeta:{
+                      required: palabras.validaciones_registro.nombres.required,
+                      digits: palabras.validaciones_registro.dni.digits,
+                      minlength: palabras.form_pago.postal.tarjeta,
+                      maxlength: palabras.form_pago.postal.tarjeta
+                    },
+                    csc:{
+                      required: palabras.validaciones_registro.nombres.required,
+                      digits: palabras.validaciones_registro.dni.digits,
+                      minlength: palabras.form_pago.postal.csc,
+                      maxlength: palabras.form_pago.postal.csc
+                    },
+                    fechaCaducidad:{
+                      required: palabras.validaciones_registro.nombres.required,
+                      fecha_caducidad: palabras.form_pago.fecha_incorrecta,
+                      formato_fecha_caducidad: palabras.form_pago.formato_incorrecto_fecha_caducidad
                     }
                   },
                   errorElement: 'span',

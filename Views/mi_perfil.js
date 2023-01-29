@@ -4,13 +4,15 @@ $(document).ready(function(){
     bsCustomFileInput.init();
     var palabras;
     cargarPalabras();
+    verificar_sesion();
+    obtener_datos();
+
+    /*
     llenar_departamentos();
     llenar_provincia();
     llenar_ciudad();
-    verificar_sesion();
-    obtener_datos();
     llenar_direcciones();
-
+    */
 
     function cargarPalabras(){
         funcion='lenguaje';
@@ -334,6 +336,40 @@ $(document).ready(function(){
 
 
     /*PARTE QUE VALIDA EL CAMBIO DE DATOS*/
+
+
+    //registrar errores de los campos en la base de datos 
+    //los metodos se encuentran en registro_error_miperfil.js
+
+    $( "#boton_registro_clave" ).click(function() {
+      verificar_passwords($('#pass_new').val(),$('#pass_repeat').val());
+      verificar_pass($('#pass_old').val());
+
+      //verificar campos vacios
+      verificar_campo_vacio('password_old',$('#pass_old').val());
+      verificar_campo_vacio('password_nuevo',$('#pass_new').val());
+      verificar_campo_vacio('password_repeat',$('#pass_repeat').val());
+      
+    });
+
+    $( "#boton_registro" ).click(function() {
+      verificar_cedula($('#dni_mod').val());
+      verificar_letras('nombres_mod',$('#nombres_mod').val());
+      verificar_letras('apellidos_mod',$('#apellidos_mod').val());
+      verificar_numeros('telefono_mod',$('#telefono_mod').val());
+      verificar_numeros('dni_mod',$('#dni_mod').val());
+      verificar_telefono($('#telefono_mod').val());
+      verificar_email($('#email_mod').val());
+      
+
+      //verificar campos vacios
+      verificar_campo_vacio('nombres_mod',$('#nombres_mod').val());
+      verificar_campo_vacio('apellidos_mod',$('#apellidos_mod').val());
+      verificar_campo_vacio('email_mod',$('#email_mod').val());
+      verificar_campo_vacio('dni_mod',$('#dni_mod').val());
+      verificar_campo_vacio('telefono_mod',$('#telefono_mod').val());
+    });
+
     let idioma = identificarIdioma();
     $.getJSON( "./idiomas/"+idioma+".json", function( json )
         {     

@@ -38,7 +38,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           <?php echo $palabras['mi_perfil']['cerrar'];?>
         </button>
-        <button type="submit" class="btn btn-primary">
+        <button id="boton_registro_clave" type="submit" class="btn btn-primary">
           <?php echo $palabras['mi_perfil']['guardar'];?>
         </button>
         </form>
@@ -108,7 +108,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           <?php echo $palabras['mi_perfil']['cerrar'];?>
         </button>
-        <button type="submit" class="btn btn-primary">
+        <button id="boton_registro" type="submit" class="btn btn-primary">
           <?php echo $palabras['mi_perfil']['guardar'];?>
         </button>
         </form>
@@ -255,7 +255,7 @@
                 </div>
               </div>
 
-              <!-- About Me Box -->
+              <!-- About Me Box 
             <div class="card card-light d-flex flex-fill">
                 <div class="card-header border-bottom-0">
                     <strong> <?php echo $palabras['mi_perfil']['mis_direcciones'];?> </strong>
@@ -269,7 +269,7 @@
                   
                 </div>
               </div>
-
+              -->
             
             <!-- About Me Box -->
             
@@ -485,5 +485,6 @@
  include_once './Layouts/general/footer.php';
 ?>
 
+<script src="../Util/Js/registro_error_miperfil.js"></script>
 <script src="mi_perfil.js"></script>
 <script src="mi_perfil_activity.js"></script>

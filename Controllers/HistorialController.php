@@ -56,6 +56,19 @@
         }
      }
 
+     if($_POST['funcion']=='registro_error_sesion'){
+        try{
+            $tabla = $_POST['tabla'];
+            $campo = $_POST['campo'];
+            $error = $_POST['error'];
+    
+            $historial->registro_error_sesion($campo,$error,$tabla);
+            echo 'success';    
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+     }
+
      if($_POST['funcion']=='registrar_pagina'){
         try{
             $pagina = $_POST['pagina'];

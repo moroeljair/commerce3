@@ -88,6 +88,24 @@
             }
         }
 
+        function registro_error_sesion($campo,$error,$tabla){
+            try{
+                $sql="INSERT INTO registro_errores_sesion(tabla,campo,error,id_login) VALUES(:tabla,:campo,:error,:id_login)";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':tabla'=>$tabla,
+                    ':campo'=>$campo,
+                    ':error'=>$error,
+                    'id_login'=>$_SESSION['id_login']
+                );
+                $query->execute($variables);
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return $e->getMessage();
+            }
+        }
+
         function registrar_pagina($pagina){
             try{
                 $sql="INSERT INTO registro_paginas(id_login,fecha,pagina) 

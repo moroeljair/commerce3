@@ -13,7 +13,7 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="../Util/Js/cedula.js"></script>
+
 
 
 <!-- jQuery -->

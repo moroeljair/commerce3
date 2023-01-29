@@ -53,5 +53,15 @@
         "no":"Se ha cancelado la acción",
         "error":"Error no se ha borrado"
     },
-    "telefono_max":"Excede el límite"
+    "telefono_max":"Excede el límite",
+    "form_pago":{
+        "postal":{
+            "min":"Son 6 caracteres",
+            "max":"Son 6 caracteres",
+            "tarjeta":"Son 16 caracteres",
+            "csc":"Son 3 caracteres"
+        },
+        "formato_incorrecto_fecha_caducidad":"Formato incorrecto, ejm: 11/28",
+        "fecha_incorrecta":"Fuera de rango"
+    }
 }

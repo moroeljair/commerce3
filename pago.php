@@ -67,7 +67,7 @@ include './Views/Layouts/header.php';
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="csc" name="csc" placeholder="<?php echo $palabras['carrito']['cvv'];?>">
+                                    <input type="text" class="form-control" id="csc" name="csc" placeholder="<?php echo $palabras['carrito']['cvv'];?>">
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -93,10 +93,10 @@ include './Views/Layouts/header.php';
                                     <input type="text" class="form-control" id="direccion" name="direccion" placeholder="<?php echo $palabras['carrito']['direccion'];?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="postal" name="postal" placeholder="<?php echo $palabras['carrito']['cod_pos'];?>">
+                                    <input type="text" class="form-control" id="postal" name="postal" placeholder="<?php echo $palabras['carrito']['cod_pos'];?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="cedula" name="cedula" placeholder="<?php echo $palabras['carrito']['cedula'];?>">
+                                    <input type="text" class="form-control" id="cedula" name="cedula" placeholder="<?php echo $palabras['carrito']['cedula'];?>">
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ include './Views/Layouts/header.php';
     <!-- jQuery -->
     <script src="./Util/Js/jquery.min.js"></script>
     <script src="./Util/Js/registrar_paginas.js"></script>
-    <script src="./pago.js"></script>
+    
 
     <?php
 include_once './Views/Layouts/footer.php';
@@ -183,8 +183,9 @@ include_once './Views/Layouts/footer.php';
 <script src="./Util/Js/jquery-validation/additional-methods.min.js"></script>
 
 <script src="./Util/Js/sweetalert2.min.js"></script>
-<script src="./Util/Js/validador_pago.js"></script>
 
+<script src="./Util/Js/registro_error_pago.js"></script>
+<script src="./pago.js"></script>
 
 <!--
     <script src="https://www.paypal.com/sdk/js?client-id=AbQh_HMf6yH_qMW9Roprb_rj8DRYeMZgP-dZy3THNmXdHJjPu4vmJ7f_8TqcI8Ysj0L0dx5wc2aeJtjq&currency=USD"></script>
