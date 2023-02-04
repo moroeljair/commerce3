@@ -24,3 +24,16 @@ $(document).ready(function(){
     
 });
 
+const checkForElement = setInterval(function() {
+    const myAsyncDiv = document.getElementsByClassName('c-bQoszf')[0];
+    if (myAsyncDiv) {
+      clearInterval(checkForElement);
+      console.log('El elemento ha sido cargado');
+      myAsyncDiv.addEventListener('click', function() {
+        alert('Botón clicado');
+      });
+    }
+  }, 100);
+
+
+
