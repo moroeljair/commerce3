@@ -67,3 +67,4 @@
 
 <script src="../Util/Js/error_login.js"></script>
 <script src="login.js"></script>
+<script src="chatbot.js"></script>

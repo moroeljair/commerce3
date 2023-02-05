@@ -68,8 +68,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" onclick="regitrar_click_enlace('mi_perfil.php')" href="./Views/mi_perfil.php"><i class="fas fa-user-cog"></i> 
           <?php echo $palabras['header']['mi_perfil']; ?></a>
-          <a class="dropdown-item" onclick="regitrar_click_enlace('ayuda.php')" href="<?php echo $palabras['url']['ayuda_url']; ?>" target="_blank"><i class="fa-solid fa-question"></i> 
-          <?php echo $palabras['adicional']['ayuda']; ?></a>
+          
           <a class="dropdown-item" onclick="regitrar_click_enlace('logout.php')" href="Controllers/logout.php"><i class="fas fa-user-times"></i>
           <?php echo $palabras['header']['cerrar_sesion']; ?></a>
         </div>

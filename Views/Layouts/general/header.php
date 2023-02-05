@@ -85,8 +85,7 @@ $palabras = parse_ini_file( $archivo, true );
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" onclick="regitrar_click_enlace2('miperfil.php')" href="./mi_perfil.php"><i class="fas fa-user-cog"></i> 
           <?php echo $palabras['header']['mi_perfil']; ?></a>
-          <a class="dropdown-item" onclick="regitrar_click_enlace2('ayuda.php')" href="<?php echo $palabras['url']['ayuda_url2']; ?>" target="_blank"><i class="fa-solid fa-question"></i> 
-          <?php echo $palabras['adicional']['ayuda']; ?></a>
+          
           <a class="dropdown-item" onclick="regitrar_click_enlace2('logout.php')" href="../Controllers/logout.php"><i class="fas fa-user-times"></i>
           <?php echo $palabras['header']['cerrar_sesion']; ?></a>
         </div>

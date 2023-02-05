@@ -129,3 +129,5 @@ if($id_transaccion == ''){
                 
 </body>
 </html>
+
+<script src="chatbot.js"></script>

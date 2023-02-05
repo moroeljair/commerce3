@@ -52,5 +52,16 @@
         "deleted":"The address has been deleted",
         "no":"The action has been cancelled",
         "error":"Error has not been deleted"
+	},
+    "telefono_max":"Exceeds the limit",
+    "form_pago":{
+        "postal":{
+            "min":"It's 6 characters",
+            "max":"It's 6 characters",
+            "tarjeta":"It's 16 characters",
+            "csc":"It's 3 characters"
+        },
+        "formato_incorrecto_fecha_caducidad":"Wrong format, eg: 11/28",
+        "fecha_incorrecta":"Out of range"
     }
 }

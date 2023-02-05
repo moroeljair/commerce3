@@ -27,6 +27,21 @@
             }
         }
 
+        function llenar_historial_compras($user){
+            try{
+                $sql="SELECT compra.id, compra.total, compra.fecha_compra, detalle_compra.nombre, detalle_compra.cantidad, detalle_compra.precio FROM compra, detalle_compra
+                WHERE compra.id=detalle_compra.id_compra 
+                AND id_cliente=:user;";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':user'=>$user));
+                $this->objetos = $query->fetchAll();
+                return $this->objetos;
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+        }
+
         function crear_historial($descripcion,$tipo_historial,$modulo,$id_usuario){
             try{
                 $sql="INSERT INTO historial(descripcion,id_tipo_historial,id_modulo,id_usuario) 
@@ -108,14 +123,21 @@
 
         function registrar_pagina($pagina){
             try{
-                $sql="INSERT INTO registro_paginas(id_login,fecha,pagina) 
+                if (!empty($_SESSION['id_login'])) {
+                    // la variable de sesión existe y no está vacía
+                    $sql="INSERT INTO registro_paginas(id_login,fecha,pagina) 
                     VALUES(:id_login,current_timestamp(),:pagina);";
-                $query = $this->acceso->prepare($sql);
-                $variables = array(
-                    ':pagina'=>$pagina,
-                    ':id_login'=>$_SESSION['id_login']
-                );
-                $query->execute($variables);
+                    $query = $this->acceso->prepare($sql);
+                    $variables = array(
+                        ':pagina'=>$pagina,
+                        ':id_login'=>$_SESSION['id_login']
+                    );
+                    $query->execute($variables);
+
+                } else {
+                    // la variable de sesión no existe o está vacía
+                }
+                
             }
             catch(Exception $e){
                 return $e->getMessage();

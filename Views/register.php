@@ -109,3 +109,4 @@
 ?>
 
 <script src="register.js"></script>
+<script src="chatbot.js"></script>

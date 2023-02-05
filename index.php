@@ -68,7 +68,7 @@ include './Views/Layouts/header.php';
             </div>
         </div>
 
-        <button class="jaja">HOLI</button>
+
 
     </main>
 
@@ -79,34 +79,6 @@ include './Views/Layouts/header.php';
     </script>
                         -->
 
-
-
-<!--CHATBOT-->
-<script type="text/javascript">
-
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        
-        window.voiceflow.chat.load({
-          verify: { projectID: '63d73e40c18c28000631c8f5' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production'
-        });
-      }
-
-      
-    
-
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
-      v.type = "text/javascript"; 
-      s.parentNode.insertBefore(v, s);
-      
-      
-
-  })(document, 'script');
-  
-</script>
 
 
 
@@ -141,6 +113,6 @@ include_once './Views/Layouts/footer.php';
 
 
 
-
+<script src="chatbot.js"></script>
 
 

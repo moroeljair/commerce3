@@ -52,5 +52,16 @@
         "deleted":"تم حذف العنوان",
         "no":"تم إلغاء الإجراء",
         "error":"لم يتم حذف الخطأ"
+    },
+    "telefono_max":"تجاوز الليميت",
+    "form_pago":{
+        "postal":{
+            "min":"ابن 6 ذرات",
+            "max":"ابن 6 ذرات",
+            "tarjeta":"ابن 16 ذبابة",
+            "csc":"الابن 3 الجراثيم"
+        },
+        "formato_incorrecto_fecha_caducidad":"صيغة غير صحيحة ، ejm: 11/28",
+        "fecha_incorrecta":"فويرا دي رانجو"
     }
 }

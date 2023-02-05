@@ -14,6 +14,7 @@ try{
     $con = $db->conectar();
     $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
     $row_prod = array();
+    $id_login = $_SESSION['id'];
 
     if($productos != null){
         $total = 0;
@@ -42,7 +43,7 @@ try{
             
         }
         $sql = $con->prepare("INSERT INTO compra (tarjeta, fechaCaducidad, csc, status, nombre, apellido, calle, direccion, postal, cedula, id_cliente, total) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-        $sql->execute([$tarjeta, $fechaCaducidad, $csc, 'COMPLETED', $nombre, $apellido, $calle, $direccion, $postal, $cedula, '877', $total]);
+        $sql->execute([$tarjeta, $fechaCaducidad, $csc, 'COMPLETED', $nombre, $apellido, $calle, $direccion, $postal, $cedula, $id_login, $total]);
         $id = $con->lastInsertId();
 
 

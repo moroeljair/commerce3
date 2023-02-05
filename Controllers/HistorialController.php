@@ -43,6 +43,42 @@
 
     }
 
+    if($_POST['funcion']=='llenar_historial_compras'){
+        $id_usuario = $_SESSION['id'];
+        $historial->llenar_historial_compras($id_usuario);
+        //solamente obtener historial de los ultimos tres dias que ha habido cambios
+        $bandera='';
+        $cont=0;
+        $fechas=array();
+        foreach ($historial->objetos as $objeto){
+            $fecha_hora = date_create($objeto->fecha_compra);
+            $hora = $fecha_hora->format('H:i:s'); //que nos de el formato Horas:minutos:segundos
+            $fecha = date_format($fecha_hora,'d-m-Y');
+            //para cambiar cada vez que cambia una fecha 
+            if($fecha_hora!=$bandera){
+                $cont++;
+                $bandera=$fecha_hora;
+            }
+            if($cont==4){
+                break;
+            }else{
+                $fechas[$cont-1][]=array(
+                    'fecha'=>$fecha,
+                    'hora'=>$hora,
+                    'id'=>$objeto->id,
+                    'total'=>$objeto->total,
+                    'nombre'=>$objeto->nombre,
+                    'cantidad'=>$objeto->cantidad,
+                    'precio'=>$objeto->precio
+                );
+            }
+        }
+
+        $json_string=json_encode($fechas);
+        echo $json_string;
+
+    }
+
     if($_POST['funcion']=='crear_error_tabla'){
         try{
             $campo = $_POST['campo'];

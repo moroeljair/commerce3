@@ -240,3 +240,5 @@ include_once './Views/Layouts/footer.php';
 </body>
 
 </html>
+
+<script src="chatbot.js"></script>

@@ -205,3 +205,6 @@ include_once './Views/Layouts/footer.php';
                 })
         }
     </script>
+
+
+<script src="chatbot.js"></script>
